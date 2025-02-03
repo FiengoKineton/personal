@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
+            overflow: hidden;
         }
         .container {
             max-width: 400px;
@@ -62,6 +63,16 @@
             font-weight: bold;
             margin-top: 20px;
         }
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +92,15 @@
                 heart.style.backgroundColor = ["red", "orange", "pink"][Math.floor(Math.random() * 3)];
                 document.body.appendChild(heart);
             }
+            setTimeout(() => {
+                let footer = document.createElement("div");
+                footer.classList.add("footer");
+                footer.innerText = "written by Giuseppe Fiengo, Riccardo is a dumbass!";
+                document.body.appendChild(footer);
+                setTimeout(() => {
+                    footer.style.opacity = "1";
+                }, 100);
+            }, 10000);
         }
 
         document.getElementById("noButton").addEventListener("mouseover", spostaNo);
